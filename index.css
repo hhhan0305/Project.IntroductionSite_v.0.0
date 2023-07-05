@@ -1,0 +1,68 @@
+article {
+    height: 100vh;
+    box-sizing: border-box;
+    background-color: pink;
+}
+
+article:nth-child(1) {
+    background-color: skyblue;
+}
+
+article:nth-child(2) {
+    background-color: steelblue;
+}
+
+article:nth-child(3) {
+    background-color: cornflowerblue;
+}
+
+article:nth-child(4) {
+    background-color: cadetblue;
+}
+
+article:nth-child(5) {
+    background-color: rgb(21, 96, 98);
+}
+
+article:nth-child(6) {
+    background-color: rgb(95, 160, 95);
+}
+article:nth-child(7) {
+    background-color: rgb(38, 103, 173);
+}
+
+.wrapper {
+    display: grid;
+    place-items: center;
+    min-height: 60vh;
+}
+
+.btn1 {
+    border: none;
+    border-radius: 50px;
+}
+
+.btn2 {
+    border: none;
+    border-radius: 50px;
+}
+
+.btn3 {
+    border: none;
+    border-radius: 50px;
+}
+
+.btn4 {
+    border: none;
+    border-radius: 50px;
+}
+
+.btn5 {
+    border: none;
+    border-radius: 50px;
+}
+
+.btn6 {
+    border: none;
+    border-radius: 50px;
+}
