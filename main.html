@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>자기소개 사이트</title>
+    
+</head>
+<body>
+    <div class="hero-section"></div>
+
+    <div class="navigation-bar">
+        <a href="#first">소개</a>
+        <a href="#second">학교</a>
+        <a href="#third">작품</a>
+        <a href="#fourth">수상기록</a>
+    </div>
+
+    <div class="content-section" id="first">
+        <p>안녕하세요, 저는 한동연입니다<br>2007년생이고 3월 5일이 생일 입니다.<br>자연과 사회에 도움이 되는 IOT 및 소프트웨어를 개발하여 도움을 주는 것이 꿈 입니다.</p>
+    </div>
+
+    <div class="content-section" id="second">
+        <p>저는 현재 선린인터넷고등학교 소프트웨어과 118기 1학년으로 재학 중이며<br>모바일 콘텐츠 동아리 EDCAN에서 개발자 10기로 활동하고 있습니다.<br>저희 학교는 자신의 전공을 열심히 하는 친구들이 있어 분위기가 매우 좋습니다.<br>그래서 항상 선린인고에 오길 잘했다는 생각이 듭니다.</p>
+    </div>
+
+    <div class="content-section" id="third">
+        <div class="text-and-image">
+            <div class="text">
+                <p>제가 IOT 및 소프트웨어에 관심을 가지기 시작한 것은 어렸을 적 순수히 자연 과학과 로봇을 좋아했기 때문입니다.</p>
+                <p>제가 만들었던 작품 미니 휴머노이드와 자율주행 자동차를 소개하겠습니다.</p>
+            </div>
+            <div class="image-container">
+                <img class ="img" src="./KakaoTalk_20230707_183449327.jpg">
+                <p class="caption">미니 휴머노이드</p>
+            </div>
+            <div class="image-container">
+                <img class ="img" src="./KakaoTalk_20230707_203941116.jpg">
+                <p class="caption">자율주행 자동차</p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="content-section" id="fourth">
+        <p> 2018 거북선 대회 동상<br>
+            2019 IROC 수도권 1등<br>
+            2019 IRC 팀플레이 1위 / 산업통상자원부장관상<br>
+            2019 IRO 세계(태국) 대회 2위, 3위<br>
+            2020 IRC 미션 피지컬 컴퓨팅 1위 / 산업통상자원부장관상<br>
+            2020 K로봇대회2등<br>
+            2020 IPRC ONLINE 일반부 동상<br>
+            2022 삼성 주니어 소프트웨어 창작대회파이널리스트입상</p>
+    </div>
+
+    <script>
+        const navigationLinks = document.querySelectorAll('.navigation-bar a');
+        navigationLinks.forEach(link => {
+            link.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                window.scrollTo({
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
+                });
+
+                navigationLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                this.classList.add('active');
+            });
+        });
+
+        window.addEventListener('scroll', function () {
+            const currentScrollPos = window.pageYOffset;
+
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                if (currentScrollPos >= sectionTop && currentScrollPos < sectionTop + sectionHeight) {
+                    const targetId = section.getAttribute('id');
+                    navigationLinks.forEach(link => {
+                        if (link.getAttribute('href') === `#${targetId}`) {
+                            link.classList.add('active');
+                        } else {
+                            link.classList.remove('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
